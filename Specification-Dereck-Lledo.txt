@@ -1,0 +1,17 @@
+SPÉCIFICATION DERECK LLEDO
+
+Vérifier le format du nom du client:
+
+	public boolean verifierClient(String client){} 
+
+	Cette fonction va s'assurer que le nom du client ne contient jamais d'espace.
+	Retourne TRUE si le nom respecte le format demandé.
+
+
+Vérifier le format des plats:
+	
+	public boolean verifierPlat(String plat){}
+
+	Cette fonction va s'assurer que le plat a toujours un nom sans espace avec un prix.
+	Retourne TRUE si la plat respecte le format demandé.
+
