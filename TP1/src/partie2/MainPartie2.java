@@ -6,7 +6,7 @@ public class MainPartie2 {
 		// TODO Auto-generated method stub
 		
 		new ChezBarette();
-
+		//ici j'ajoute un message test!
 	}
 
 }
