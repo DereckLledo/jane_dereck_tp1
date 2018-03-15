@@ -132,6 +132,21 @@ public class ChezBarette {
 		return valide;
 	}
 	
+	public boolean verifierClient(String client){
+		boolean valide = false;
+		
+		
+		
+		return valide;
+	}
+	
+	public boolean verifierPlat(String plat){
+		boolean valide = false;
+		
+		
+		return valide;
+	}
+	
 	public boolean platPresent(String[] laCommande){
 		boolean valide = true;
 		boolean estPresent = false;
