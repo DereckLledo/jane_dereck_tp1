@@ -1,0 +1,9 @@
+DERECK: - Fonction pour ajouter les taxes sur le prix total.
+	- Modifier le code afin de vérifier si le format des commandes dans le fichier texte sont incorrectes.
+
+JANE:	- Afficher une facture à l'écran (terminal)
+ 	- Créer fichier "Facture-du-date-heure.txt" avec les commandes.
+
+
+Nous allons faire les testunit des fonctions notre coéquipier en plus d'effectuer le ré-usinage du code de notre coéquipier.
+Nous allons utiliser EclEmma afin d'obtenir une couverture de notre code d'au minimum 75%.
