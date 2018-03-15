@@ -44,8 +44,13 @@ public class ChezBarette {
 					switch (status){
 					
 					case 1:	
-							Clients client = new Clients(ligne);
-							listeClients.add(client);;
+							if (verifierClient(ligne)){
+								
+								Clients client = new Clients(ligne);
+								listeClients.add(client);;
+							}
+							
+
 							break;
 					case 2:
 							ajouterPlat(ligne);
@@ -131,14 +136,25 @@ public class ChezBarette {
 		
 		return valide;
 	}
-	
+	/*
+	 * VERIFICATION DU FORMAT DU CLIENT ( PAS D'ESPACE )
+	 */
 	public boolean verifierClient(String client){
-		boolean valide = false;
+		boolean valide = true;
 		
+		char[] tabCar = client.toCharArray();
 		
+		for ( int i = 0; i< client.length(); i++){
+			
+			if ( tabCar[i] == ' ') {
+				valide = false;
+			}
+			
+		}
 		
 		return valide;
 	}
+	
 	
 	public boolean verifierPlat(String plat){
 		boolean valide = false;
