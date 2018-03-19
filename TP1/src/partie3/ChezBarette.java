@@ -55,6 +55,8 @@ public class ChezBarette {
 							break;
 					case 2:
 							ajouterPlat(ligne);
+							
+							verifierPlat(ligne);
 							break;
 					//si ce n'est pas valide on arrete la lecture du document
 					case 3:
@@ -170,7 +172,7 @@ public class ChezBarette {
 				//si le char est une lettre, rien ne se passe. 
 					//Si le char est un espace, on passe à la phase 2.
 					//Si pas lettre et pas un espace, le plat ne respecte pas le format.
-				if ( !Character.isLetter(tabCar[i]) ) {
+				if ( !Character.isLetter(tabCar[i]) && tabCar[i] != '_') {
 					
 					if ( tabCar[i] == ' ') {
 						
@@ -178,7 +180,7 @@ public class ChezBarette {
 						tabNb = Arrays.copyOfRange(tabCar, i+1 , tabCar.length);
 						
 					} else {
-						
+						System.out.println("PAS BON");
 						valide = false;
 					}
 					
@@ -187,19 +189,23 @@ public class ChezBarette {
 					
 		}
 		
+		//si la premiere partie du plat est un nom sans espace, la 2e partie doit etre un double
 		if ( phase == 2 ) {
 			for (int i = 0; i < tabNb.length; i++) {
 				System.out.print(tabNb[i]);
 			}
+			System.out.println();
 				
-				/*try
+				try
 				{
-					  Double.parseDouble(number);
+					String prix = new String(tabNb);
+					Double.parseDouble(prix);
 					}
 					catch(NumberFormatException e)
 					{
-					  //not a double
-					}			*/			
+					  
+						valide = false;
+					}					
 		
 		}
 		
