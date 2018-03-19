@@ -93,9 +93,19 @@ public class ChezBarette {
 		if (valide) {
 
 			System.out.println("Bienvenue chez Barette!" + "\nFactures:");
+			
+			double prix;
+			
 			for (Clients client : listeClients) {
+				
+				prix = client.getMontantTotal();
+
+				//on affiche seulement les clients avec une facture > 0$
+				if ( prix > 0) {
+					
 				System.out.println(client.getNom() + " "
 						+ client.getMontantTotal());
+				}
 			}
 
 		} else {
