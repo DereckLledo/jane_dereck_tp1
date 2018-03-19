@@ -1,6 +1,6 @@
 package partie3;
 
-public class MainPartie2 {
+public class MainPartie3 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
