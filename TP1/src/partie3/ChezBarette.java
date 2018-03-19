@@ -8,6 +8,7 @@ import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ChezBarette {
 	
@@ -144,7 +145,7 @@ public class ChezBarette {
 		
 		char[] tabCar = client.toCharArray();
 		
-		for ( int i = 0; i< client.length(); i++){
+		for ( int i = 0; i< client.length() && valide; i++){
 			
 			if ( tabCar[i] == ' ') {
 				valide = false;
@@ -157,7 +158,50 @@ public class ChezBarette {
 	
 	
 	public boolean verifierPlat(String plat){
-		boolean valide = false;
+		boolean valide = true;
+		
+		char[] tabCar = plat.toCharArray();
+		int phase = 1;
+		char[] tabNb = null;
+		
+		for ( int i = 0; i< plat.length() && valide; i++){
+			
+
+				//si le char est une lettre, rien ne se passe. 
+					//Si le char est un espace, on passe à la phase 2.
+					//Si pas lettre et pas un espace, le plat ne respecte pas le format.
+				if ( !Character.isLetter(tabCar[i]) ) {
+					
+					if ( tabCar[i] == ' ') {
+						
+						phase = 2;
+						tabNb = Arrays.copyOfRange(tabCar, i+1 , tabCar.length);
+						
+					} else {
+						
+						valide = false;
+					}
+					
+					break;
+				}	
+					
+		}
+		
+		if ( phase == 2 ) {
+			for (int i = 0; i < tabNb.length; i++) {
+				System.out.print(tabNb[i]);
+			}
+				
+				/*try
+				{
+					  Double.parseDouble(number);
+					}
+					catch(NumberFormatException e)
+					{
+					  //not a double
+					}			*/			
+		
+		}
 		
 		
 		return valide;
