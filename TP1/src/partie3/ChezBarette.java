@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 
@@ -94,17 +95,23 @@ public class ChezBarette {
 
 			System.out.println("Bienvenue chez Barette!" + "\nFactures:");
 			
-			double prix;
+			double prixAvantTaxes;
+			double prixApresTaxes;
+			DecimalFormat f = new DecimalFormat("##.00");
 			
 			for (Clients client : listeClients) {
 				
-				prix = client.getMontantTotal();
+				prixAvantTaxes = client.getMontantTotal();
 
 				//on affiche seulement les clients avec une facture > 0$
-				if ( prix > 0) {
-					
-				System.out.println(client.getNom() + " "
-						+ client.getMontantTotal());
+				if ( prixAvantTaxes > 0) {
+
+				prixApresTaxes = calculerTaxes(prixAvantTaxes) + prixAvantTaxes;
+				
+				
+				System.out.println(client.getNom() + " " + f.format(prixApresTaxes) + "$ ");
+				
+				
 				}
 			}
 
@@ -112,6 +119,15 @@ public class ChezBarette {
 			System.out.println("Le fichier ne respecte pas le format demandé!");
 		}
 
+	}
+	
+	
+	//ajoute les taxes au prix
+	public double calculerTaxes(double prix) {
+		// TODO Auto-generated method stub
+		double tauxTPS = 0.05;
+		double tauxTVQ = 0.0998;
+		return ((prix * tauxTPS) + (prix * tauxTVQ));
 	}
 
 	public boolean verifierCommande(String commande) {
@@ -250,6 +266,7 @@ public class ChezBarette {
 
 		return valide;
 	}
+	
 
 	/*public void ajouterPlat(String platPrix) {
 

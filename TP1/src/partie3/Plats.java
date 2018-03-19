@@ -9,8 +9,8 @@ public class Plats {
 		
 		this.plat = plat;
 		this.prix = prix;
-
 	}
+	
 
 	public String getPlat() {
 		return plat;
