@@ -2,17 +2,23 @@ package test;
 import partie3.*;
 import static org.junit.Assert.*;
 
-
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.*;
+import org.mockito.Mockito;
+import org.mockito.Mock;
 
 public class TestUnit {
 
 	ChezBarette chezB;
-	Clients cli;
+
+	@Mock
 	Plats plat;
+	
+	@Mock
+	Clients cli;
+	
 	
 	@Before
 	public void AvantChaqueTest() {
@@ -42,9 +48,19 @@ public class TestUnit {
 		assertFalse(chezB.verifierCommande(a));
 	}
 	
+
+	
 	@Test
 	public void testVerifierCommandeTrue(){
+		
+//FONCTIONNE PAS
+		
 		//le format d'une commande est "client plat nbPlats"
+		String laCommande = "nomClient nomPlat 2";
+		String[] tabCommande = laCommande.split(" ");
+
+		
+		assertTrue(chezB.verifierCommande(laCommande));
 		
 	/*	cli = new Clients("testNom");
 		plat = new Plats("testPlat", 10.65);
