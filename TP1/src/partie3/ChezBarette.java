@@ -121,6 +121,22 @@ public class ChezBarette {
 
 	}
 	
+	public ArrayList<Clients> getListeClients() {
+		return listeClients;
+	}
+
+	public void setListeClients(ArrayList<Clients> listeClients) {
+		this.listeClients = listeClients;
+	}
+
+	public ArrayList<Plats> getListePlats() {
+		return listePlats;
+	}
+
+	public void setListePlats(ArrayList<Plats> listePlats) {
+		this.listePlats = listePlats;
+	}
+	
 	
 	//ajoute les taxes au prix
 	public double calculerTaxes(double prix) {
