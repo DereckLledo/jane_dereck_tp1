@@ -15,3 +15,14 @@ Vérifier le format des plats:
 	Cette fonction va s'assurer que le plat a toujours un nom sans espace avec un prix.
 	Retourne TRUE si la plat respecte le format demandé.
 
+Calculer le montant des taxes:
+	public static double calculerTaxes(double prix){}
+	
+	Cette fonction va retourner le montant de la taxe ( ICI TPS=5% TVQ=10% ).
+	Retourne la valeur de la taxe seulement, pas le prix total.
+	EX: le paramatre prix=10, la fonction va retourner 1,5.
+
+
+TESTS:
+
+testCalculerTaxes();
