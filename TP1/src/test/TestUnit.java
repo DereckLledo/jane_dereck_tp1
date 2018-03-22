@@ -1,6 +1,8 @@
 package test;
-import partie3.ChezBarette;
+import partie3.*;
 import static org.junit.Assert.*;
+
+
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,10 +11,13 @@ import org.junit.Test;
 public class TestUnit {
 
 	ChezBarette chezB;
+	Clients cli;
+	Plats plat;
 	
 	@Before
 	public void AvantChaqueTest() {
 		chezB = new ChezBarette();
+
 	}
 
 	@After
@@ -40,8 +45,13 @@ public class TestUnit {
 	@Test
 	public void testVerifierCommandeTrue(){
 		//le format d'une commande est "client plat nbPlats"
-		String a = "Allo poutine 2";
-		assertTrue(chezB.verifierCommande(a));
+		
+	/*	cli = new Clients("testNom");
+		plat = new Plats("testPlat", 10.65);
+		String test = "testNom testPlat 10.65"; */
+		
+		
+		//assertTrue(chezB.verifierCommande(test));
 	}
 	
 
