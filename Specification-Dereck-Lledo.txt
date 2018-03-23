@@ -26,3 +26,10 @@ Calculer le montant des taxes:
 TESTS:
 
 testCalculerTaxes();
+
+
+
+
+
+BOGUES:
+Le test testVerifierClientVide() à permit de trouver un bogue qui acceptait un nom de client vide. J'ai donc modifier le code

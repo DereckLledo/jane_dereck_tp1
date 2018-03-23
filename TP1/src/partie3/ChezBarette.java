@@ -184,14 +184,21 @@ public class ChezBarette {
 	public boolean verifierClient(String client) {
 		boolean valide = true;
 
-		char[] tabCar = client.toCharArray();
-
-		for (int i = 0; i < client.length() && valide; i++) {
-
-			if (tabCar[i] == ' ') {
-				valide = false;
+		if ( !client.equals("")){
+			
+		
+			char[] tabCar = client.toCharArray();
+	
+			for (int i = 0; i < client.length() && valide; i++) {
+	
+				if (tabCar[i] == ' ') {
+					valide = false;
+				}
+	
 			}
-
+		} else {
+			
+			valide = false;
 		}
 
 		return valide;

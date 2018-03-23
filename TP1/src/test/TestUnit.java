@@ -69,6 +69,14 @@ public class TestUnit {
 		
 	}
 	
+	@Test
+	public void testVerifierClientVide(){
+		// un string vide
+		String nomTest = "";
+		assertFalse(chezB.verifierClient(nomTest));
+		
+	}
+	
 	
 	
 /*	@Test
