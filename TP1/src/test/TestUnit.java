@@ -70,9 +70,26 @@ public class TestUnit {
 		// un string vide
 		String nomTest = "";
 		assertFalse(chezB.verifierClient(nomTest));
-		
+
 	}
 	
+	@Test
+	public void testVerifierPlatTrue(){
+		String platTest = "Soupe 6.3";
+		assertTrue(chezB.verifierPlat(platTest));
+	}
+	
+	@Test
+	public void testVerifierPlatFalse(){
+		String platTest = "Sou pe 6.3";
+		assertFalse(chezB.verifierPlat(platTest));
+	}
+	
+	@Test
+	public void testVerifierPlatVide(){
+		String platTest = "";
+		assertFalse(chezB.verifierPlat(platTest));
+	}
 	
 	
 	/*
