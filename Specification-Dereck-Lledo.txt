@@ -34,4 +34,8 @@ testCalculerPrix()
 
 
 BOGUES:
-Le test testVerifierClientVide() à permit de trouver un bogue qui acceptait un nom de client vide. J'ai donc modifier le code
+Le test testVerifierClientVide() à permit de trouver un bogue qui acceptait un nom de client vide. J'ai donc modifier le code.
+
+EclEmma: Plus de 75% pour le package partie3
+
+Ré-usinage: Coéquipière absente donc je n'ai pas pu ré-usiner son code mais j'ai beaucoup modifier le mien!
