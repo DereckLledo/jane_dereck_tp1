@@ -143,6 +143,7 @@ public class ChezBarette {
 		// TODO Auto-generated method stub
 		double tauxTPS = 0.05;
 		double tauxTVQ = 0.1;
+		
 		return ((prix * tauxTPS) + (prix * tauxTVQ));
 	}
 

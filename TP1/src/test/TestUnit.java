@@ -30,18 +30,14 @@ public class TestUnit {
 
 	}
 
-	@After
-	public void ApresChaqueTest() {
 
-
-	}
 	
 	@Test
 	public void testCalculerTaxes() {
 		double a = 10;
 		double resultat = (a * 0.05) + (a * 0.1);
 		
-		assertEquals(resultat, chezB.calculerTaxes(a), 0.01);
+		assertEquals(resultat, chezB.calculerTaxes(a), 0);
 	}
 	
 	@Test
@@ -78,6 +74,22 @@ public class TestUnit {
 	}
 	
 	
+	
+	/*
+	@Test
+	public void testVerifierCommandeTrue(){
+		ChezBarette bar = Mockito.mock(ChezBarette.class);
+		bar.getListeClients().add(new Clients("testNom"));
+		bar.getListePlats().add(new Plats("testCommande", 2));
+		String commande = "testNom testCommande 2";
+		String[] laCommande = {"testNom", "testCommande", "2"};
+
+		Mockito.when(bar.estPresent(any())).thenReturn(true);
+		Mockito.when(bar.platPresent(any())).thenReturn(true);
+		
+		assertTrue(bar.verifierCommande(commande));
+	}
+
 	
 /*	@Test
 	public void testVerifierCommandeTrue(){
