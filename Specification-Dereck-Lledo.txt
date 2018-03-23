@@ -38,4 +38,4 @@ Le test testVerifierClientVide() à permit de trouver un bogue qui acceptait un n
 
 EclEmma: Plus de 75% pour le package partie3
 
-Ré-usinage: Coéquipière absente donc je n'ai pas pu ré-usiner son code mais j'ai beaucoup modifier le mien!
+Ré-usinage: Coéquipière absente donc je n'ai pas pu ré-usiner son code mais j'ai beaucoup modifier le mien
