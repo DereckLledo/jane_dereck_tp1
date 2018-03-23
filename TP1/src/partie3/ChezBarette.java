@@ -106,7 +106,7 @@ public class ChezBarette {
 				//on affiche seulement les clients avec une facture > 0$
 				if ( prixAvantTaxes > 0) {
 
-				prixApresTaxes = calculerTaxes(prixAvantTaxes) + prixAvantTaxes;
+				prixApresTaxes = calculerPrix(prixAvantTaxes);
 				
 				
 				System.out.println(client.getNom() + " " + f.format(prixApresTaxes) + "$ ");
@@ -121,23 +121,10 @@ public class ChezBarette {
 
 	}
 	
-	public ArrayList<Clients> getListeClients() {
-		return listeClients;
+	public double calculerPrix(double prixAvantTaxes){
+		
+		return calculerTaxes(prixAvantTaxes) + prixAvantTaxes;
 	}
-
-	public void setListeClients(ArrayList<Clients> listeClients) {
-		this.listeClients = listeClients;
-	}
-
-	public ArrayList<Plats> getListePlats() {
-		return listePlats;
-	}
-
-	public void setListePlats(ArrayList<Plats> listePlats) {
-		this.listePlats = listePlats;
-	}
-	
-	
 	//ajoute les taxes au prix
 	public double calculerTaxes(double prix) {
 		// TODO Auto-generated method stub

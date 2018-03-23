@@ -1,17 +1,10 @@
 package test;
-import java.util.ArrayList;
-
 import partie3.*;
 import static org.junit.Assert.*;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.*;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.verify;
 
 
 public class TestUnit {
@@ -91,52 +84,13 @@ public class TestUnit {
 		assertFalse(chezB.verifierPlat(platTest));
 	}
 	
-	
-	/*
 	@Test
-	public void testVerifierCommandeTrue(){
-		ChezBarette bar = Mockito.mock(ChezBarette.class);
-		bar.getListeClients().add(new Clients("testNom"));
-		bar.getListePlats().add(new Plats("testCommande", 2));
-		String commande = "testNom testCommande 2";
-		String[] laCommande = {"testNom", "testCommande", "2"};
-
-		Mockito.when(bar.estPresent(any())).thenReturn(true);
-		Mockito.when(bar.platPresent(any())).thenReturn(true);
+	public void testCalculerPrix() {
+		double prixAvantTaxes = 10;
+		//le résultat est prixAvantTaxes + (5% du prixAvantTaxes) + (10% du prixAvantTaxes);
+		double resultat = prixAvantTaxes + (prixAvantTaxes * 0.05) + (prixAvantTaxes * 0.1);
 		
-		assertTrue(bar.verifierCommande(commande));
+		assertEquals(resultat, chezB.calculerPrix(prixAvantTaxes), 0);
 	}
-
-	
-/*	@Test
-	public void testVerifierCommandeTrue(){
-		
-		Clients cli = mock(Clients.class);
-		String test = "testNom testPlat 10.65"; 
-		
-		when()
-		
-		assertTrue(chezB.verifierCommande(laCommande));
-		
-		cli = new Clients("testNom");
-		plat = new Plats("testPlat", 10.65);
-		String test = "testNom testPlat 10.65"; 
-		Clients cli = new Clients("nomTest");
-		Plats plat = new Plats("platTest", 10);
-		
-		ArrayList<Clients> listeClients = new ArrayList<Clients>();
-		ArrayList<Plats> listePlats = new ArrayList<Plats>();
-		
-		listeClients.add(cli);
-		listePlats.add(plat);
-		
-		chezB.setListeClients(listeClients);
-		
-		String laCommande = "nomTest platTest 10";
-		
-		
-		//assertTrue(chezB.verifierCommande(test));
-	}*/
-	
 
 }

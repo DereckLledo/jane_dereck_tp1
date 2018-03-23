@@ -29,7 +29,7 @@ testCalculerTaxes();
 testVerifierCommandeFalse();
 testVerifierClientTrue(), testVerifierClientFalse(), testVerifierClientVide()
 testVerifierPlatTrue(), testVerifierPlatFalse(), testVerifierPlatVide()
-
+testCalculerPrix()
 
 
 
