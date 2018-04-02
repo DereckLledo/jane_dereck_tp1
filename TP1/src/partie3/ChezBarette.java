@@ -146,19 +146,6 @@ public class ChezBarette {
 
 	}
 	
-	/*public double calculerPrix(double prixAvantTaxes){
-		
-		return calculerTaxes(prixAvantTaxes) + prixAvantTaxes;
-	}
-	//ajoute les taxes au prix
-	public double calculerTaxes(double prix) {
-		// TODO Auto-generated method stub
-		double tauxTPS = 0.05;
-		double tauxTVQ = 0.1;
-		
-		return ((prix * tauxTPS) + (prix * tauxTVQ));
-	}*/
-
 	public boolean verifierTable(String ligne) {
 		// on verifie si la ligne contient un int et qu'il est plus petit que le nb de table
 		boolean valide = true;
@@ -329,25 +316,6 @@ public class ChezBarette {
 		return valide;
 	}
 	
-
-	/*public void ajouterPlat(String platPrix) {
-
-		String[] tab;
-
-		tab = platPrix.split(" ");
-
-		String nom = tab[0];
-		Double prix = Double.parseDouble(tab[1]);
-
-		try {
-			Plats plat = new Plats(nom, prix);
-			listePlats.add(plat);
-
-		} catch (Exception e) {
-			System.out.println("Erreur dans le fichier.");
-		}
-
-	}*/
 
 	public static BufferedReader ouvrirFicTexteLecture(String nomFichier) {
 
