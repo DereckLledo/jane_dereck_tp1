@@ -56,7 +56,8 @@ public class ChezBarette {
 						if (verifierClient(ligne)) {
 
 							Clients client = new Clients(ligne);
-							listeClients.add(client);
+							table.ajoutClient(client);
+
 							
 						}
 
@@ -91,11 +92,6 @@ public class ChezBarette {
 		catch (Exception e) {
 
 		}
-		
-		//si tout est valide est valide, nous allons créer un objet Tables avec la liste des clients et le numero de la table
-		if (valide) {
-			table = new Tables(listeClients, numeroTable);
-		}
 
 		// message de sortie
 		facture(valide);
@@ -111,12 +107,12 @@ public class ChezBarette {
 			System.out.println("Bienvenue chez Barette!" + "\nFactures:");
 			
 			System.out.println("TABLE #: " + this.numeroTable);
-			
+
 			double prixAvantTaxes;
 			double prixApresTaxes;
 			DecimalFormat f = new DecimalFormat("##.00");
 			
-			for (Clients client : listeClients) {
+			for (Clients client : table.getListeClients()) {
 				
 				prixAvantTaxes = client.getMontantTotal();
 
@@ -163,6 +159,8 @@ public class ChezBarette {
 			//si le numero de table est plus grand que le nombre de tables dans le restaurant la facture n'est pas valide
 			if (this.numeroTable > NB_MAX_TABLES){
 				valide = false;
+			} else {
+				table = new Tables(this.numeroTable);
 			}
 			
 			
@@ -297,12 +295,14 @@ public class ChezBarette {
 
 		boolean estPresent = false;
 
-		for (Clients client : listeClients) {
+		for (Clients client : table.getListeClients()) {
 
 			// on verifie si le client est présent
 			if (client.getNom().equals(laCommande[0])) {
 
 				estPresent = true;
+				
+				
 				leClient = client;
 				break;
 			}
