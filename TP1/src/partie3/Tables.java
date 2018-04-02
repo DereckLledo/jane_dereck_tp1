@@ -43,4 +43,14 @@ public class Tables {
 		this.montantTotal += montantTotal;
 	}
 
+
+	public void montantFinal() {
+		double prixApresTaxes, prixAvantTaxes;
+		
+		for (Clients client : listeClients) {
+			
+			
+			}
+		}
+
 }

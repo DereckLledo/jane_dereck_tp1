@@ -110,28 +110,35 @@ public class ChezBarette {
 
 			double prixAvantTaxes;
 			double prixApresTaxes;
+			
+			double totalAvantTaxes = 0;
+			double totalApresTaxes = 0;
+			double totalTaxes = 0;
+			
 			DecimalFormat f = new DecimalFormat("##.00");
 			
 			for (Clients client : table.getListeClients()) {
 				
 				prixAvantTaxes = client.getMontantTotal();
-
+				totalAvantTaxes += prixAvantTaxes;
 				//on affiche seulement les clients avec une facture > 0$
 				if ( prixAvantTaxes > 0) {
 
 				prixApresTaxes = calculerPrix(prixAvantTaxes);
 				
 				
-				System.out.println(client.getNom() + ": " + f.format(prixApresTaxes) + "$ ");
-				
-				//on ajoute le prix total de chaque clients au montant total
-				table.setMontantTotal(prixApresTaxes);
+				System.out.println(client.getNom() + ": " + f.format(client.getMontantTotal()) + "$ ");
 				
 				}
 			}
 			
 			
+			totalTaxes = calculerTaxes(totalAvantTaxes);
+			table.montantFinal();
+			System.out.println("\nTAXES : " + f.format(totalTaxes) + "$ ");
+			System.out.println("Frais : " /*+ calulerFrais()*/ + "$ ");
 			System.out.println("\nTOTAL: " + f.format(table.getMontantTotal()) + "$ ");
+			System.out.println("\n**UN FRAIS DE SERVICE DE 15% S'AJOUTE LORSQUE LE MONTANT DE LA FACTURE DÉPASSE 100$ OU QU'IL Y A 3 CLIENTS ET PLUS À UNE TABLE**");
 
 		} else {
 			System.out.println("Le fichier ne respecte pas le format demandé!");
