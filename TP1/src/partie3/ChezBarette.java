@@ -22,7 +22,6 @@ public class ChezBarette {
 	
 	private int NB_MAX_TABLES = 30;
 	
-	private ArrayList<Clients> listeClients = new ArrayList<Clients>();
 	private ArrayList<Plats> listePlats = new ArrayList<Plats>();
 	
 	private Tables table;
@@ -103,32 +102,26 @@ public class ChezBarette {
 	public void facture(boolean valide) {
 
 		if (valide) {
-
-			System.out.println("Bienvenue chez Barette!");
 			
-			System.out.println("\nTABLE #: " + this.numeroTable + "\n");
-
+			String fact = "Bienvenue chez Barette!\n" +
+							"\nTABLE #" + this.numeroTable +
+							"\n\nCLIENTS\n============\n";
+						
+			
 			double prixAvantTaxes;
-			double prixApresTaxes;
-			
 			double totalAvantTaxes = 0;
-			double totalApresTaxes = 0;
-			double totalTaxes = 0;
 			
 			DecimalFormat f = new DecimalFormat("##.00");
 			
 			for (Clients client : table.getListeClients()) {
 				
 				prixAvantTaxes = client.getMontantTotal();
-				
 				totalAvantTaxes += prixAvantTaxes;
+				
 				//on affiche seulement les clients avec une facture > 0$
 				if ( prixAvantTaxes > 0) {
-
-				//prixApresTaxes = calculerPrix(prixAvantTaxes);
 				
-				
-				System.out.println(client.getNom() + ": " + f.format(client.getMontantTotal()) + "$ ");
+				fact += (client.getNom() + ": " + f.format(client.getMontantTotal()) + "$\n");
 				
 				}
 			}
@@ -138,7 +131,8 @@ public class ChezBarette {
 			
 			table.setMontantTotal(totalAvantTaxes);
 			
-			String fact = "\nTAXES : " + f.format(table.getMontantTaxes()) + "$\n" + 
+			fact += "\nTAXES ET FRAIS \n============\n" + 
+					"TAXES : " + f.format(table.getMontantTaxes()) + "$\n" + 
 					"Frais : " +  (table.getFrais() == 0 ? "0" : f.format(table.getFrais())) + "$ \n" + 
 					"\nTOTAL: " + f.format(table.getMontantTotal()) + "$\n" + 
 					"\n**UN FRAIS DE SERVICE DE 15% S'AJOUTE LORSQUE LE MONTANT DE LA FACTURE DÉPASSE 100$ OU QU'IL Y A 3 CLIENTS ET PLUS À UNE TABLE**";
