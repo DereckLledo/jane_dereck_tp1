@@ -138,18 +138,21 @@ public class ChezBarette {
 			
 			table.setMontantTotal(totalAvantTaxes);
 			
-			System.out.println("\nTAXES : " + f.format(table.getMontantTaxes()) + "$ ");
-			System.out.println("Frais : " + f.format(table.getFrais()) + "$ ");
-			System.out.println("\nTOTAL: " + f.format(table.getMontantTotal()) + "$ ");
-			System.out.println("\n**UN FRAIS DE SERVICE DE 15% S'AJOUTE LORSQUE LE MONTANT DE LA FACTURE DÉPASSE 100$ OU QU'IL Y A 3 CLIENTS ET PLUS À UNE TABLE**");
+			String fact = "\nTAXES : " + f.format(table.getMontantTaxes()) + "$\n" + 
+					"Frais : " +  (table.getFrais() == 0 ? "0" : f.format(table.getFrais())) + "$ \n" + 
+					"\nTOTAL: " + f.format(table.getMontantTotal()) + "$\n" + 
+					"\n**UN FRAIS DE SERVICE DE 15% S'AJOUTE LORSQUE LE MONTANT DE LA FACTURE DÉPASSE 100$ OU QU'IL Y A 3 CLIENTS ET PLUS À UNE TABLE**";
+			
+			System.out.println(fact);
 
+			
 		} else {
 			System.out.println("Le fichier ne respecte pas le format demandé!");
 		}
 
 	}
 	
-	public double calculerPrix(double prixAvantTaxes){
+	/*public double calculerPrix(double prixAvantTaxes){
 		
 		return calculerTaxes(prixAvantTaxes) + prixAvantTaxes;
 	}
@@ -160,7 +163,7 @@ public class ChezBarette {
 		double tauxTVQ = 0.1;
 		
 		return ((prix * tauxTPS) + (prix * tauxTVQ));
-	}
+	}*/
 
 	public boolean verifierTable(String ligne) {
 		// on verifie si la ligne contient un int et qu'il est plus petit que le nb de table
