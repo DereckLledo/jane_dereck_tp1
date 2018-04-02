@@ -13,10 +13,10 @@ public class Tables {
 	public Tables(ArrayList<Clients> listeClients, int numeroTable){
 		
 		this.listeClients = listeClients;
-		
 		this.numeroTable = numeroTable;
 		
 	}
+
 
 
 

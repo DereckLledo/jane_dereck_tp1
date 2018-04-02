@@ -17,11 +17,15 @@ public class ChezBarette {
 	private BufferedReader fic;
 	private boolean valide = true;
 	private Clients leClient;
+	private int numeroTable;
 
+	
+	private int NB_MAX_TABLES = 30;
+	
 	private ArrayList<Clients> listeClients = new ArrayList<Clients>();
 	private ArrayList<Plats> listePlats = new ArrayList<Plats>();
-
-	// private ArrayList<Commandes> listeCommandes;
+	
+	private ArrayList<Tables> listeTables = new ArrayList<Tables>();
 
 	public ChezBarette() {
 
@@ -40,11 +44,15 @@ public class ChezBarette {
 			while ((ligne = fic.readLine()) != null && valide) {
 
 				if (!ligne.equals("Clients:") && !ligne.equals("Plats:")
-						&& !ligne.equals("Commandes:") && !ligne.equals("Fin")) {
+						&& !ligne.equals("Commandes:") && !ligne.equals("Fin") && !ligne.equals("Table:")) {
 
 					switch (status) {
-
+					
 					case 1:
+						valide = verifierTable(ligne);	
+						break;
+
+					case 2:
 						if (verifierClient(ligne)) {
 
 							Clients client = new Clients(ligne);
@@ -55,13 +63,13 @@ public class ChezBarette {
 						valide = verifierClient(ligne);
 
 						break;
-					case 2:
+					case 3:
 						//ajouterPlat(ligne);
 
 						valide = verifierPlat(ligne);
 						break;
 					// si ce n'est pas valide on arrete la lecture du document
-					case 3:
+					case 4:
 						valide = verifierCommande(ligne);
 						break;
 
@@ -71,7 +79,7 @@ public class ChezBarette {
 
 					// le status va permettre de changer d'instruction selon où
 					// nous somme rendu dans le fichier
-					// status 1 = clients , status 2 = plats, status 3 =
+					// status 1 = numeroTable, status 2 = clients, status 3 = plats
 					// commandes
 					status++;
 				}
@@ -89,11 +97,15 @@ public class ChezBarette {
 
 	}
 
+
+
 	public void facture(boolean valide) {
 
 		if (valide) {
 
 			System.out.println("Bienvenue chez Barette!" + "\nFactures:");
+			
+			System.out.println("TABLE #: " + this.numeroTable);
 			
 			double prixAvantTaxes;
 			double prixApresTaxes;
@@ -134,6 +146,28 @@ public class ChezBarette {
 		return ((prix * tauxTPS) + (prix * tauxTVQ));
 	}
 
+	public boolean verifierTable(String ligne) {
+		// on verifie si la ligne contient un int et qu'il est plus petit que le nb de table
+		boolean valide = true;
+		
+		try {
+			
+			//si la ligne n'est pas un int, il va y avoir un erreur donc on va aller dans le catch
+			this.numeroTable = Integer.parseInt(ligne);
+			
+			//si le numero de table est plus grand que le nombre de tables dans le restaurant la facture n'est pas valide
+			if (this.numeroTable > NB_MAX_TABLES){
+				valide = false;
+			}
+			
+			
+		} catch(Exception e){
+			valide = false;
+		}
+		
+		return valide;
+	}
+	
 	public boolean verifierCommande(String commande) {
 		boolean valide = true;
 
