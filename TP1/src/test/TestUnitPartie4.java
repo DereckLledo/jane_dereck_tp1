@@ -49,7 +49,7 @@ public class TestUnitPartie4 {
 	@Test
 	public void testVerifierMontantTotal100(){
 		 
-		Tables tableTest = new Tables(15);
+		Tables tableTest = new Tables(1);
 		tableTest.setMontantTotal(100); //un montant de 100$ va avoir des frais de 15% + des taxes de 15% donc le résultat sera 130
 		
 		assertEquals( 130,tableTest.getMontantTotal(), 0.1 );
@@ -58,7 +58,7 @@ public class TestUnitPartie4 {
 	@Test
 	public void testVerifierMontantTotal50(){
 		 
-		Tables tableTest = new Tables(15);
+		Tables tableTest = new Tables(1);
 		tableTest.setMontantTotal(50); //un montant de 50$ va avoir des frais de 0$ + des taxes de 15% donc le résultat sera 57.5
 		
 		assertEquals( 57.5,tableTest.getMontantTotal(), 0.2 );
@@ -67,7 +67,7 @@ public class TestUnitPartie4 {
 	@Test
 	public void testVerifierMontantTotal50Et3Clients(){
 		 
-		Tables tableTest = new Tables(15);
+		Tables tableTest = new Tables(1);
 		tableTest.ajoutClient(new Clients("Jean"));
 		tableTest.ajoutClient(new Clients("Roger"));
 		tableTest.ajoutClient(new Clients("Jeanne"));
