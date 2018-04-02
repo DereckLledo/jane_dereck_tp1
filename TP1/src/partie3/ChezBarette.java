@@ -8,6 +8,8 @@ import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
@@ -103,7 +105,13 @@ public class ChezBarette {
 
 		if (valide) {
 			
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+			LocalDateTime now = LocalDateTime.now();//jour/mois/année 12:08:43
+	
+			
+			
 			String fact = "Bienvenue chez Barette!\n" +
+							 dtf.format(now) +  "\n" +
 							"\nTABLE #" + this.numeroTable +
 							"\n\nCLIENTS\n============\n";
 						
