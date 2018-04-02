@@ -104,9 +104,9 @@ public class ChezBarette {
 
 		if (valide) {
 
-			System.out.println("Bienvenue chez Barette!" + "\nFactures:");
+			System.out.println("Bienvenue chez Barette!");
 			
-			System.out.println("TABLE #: " + this.numeroTable);
+			System.out.println("\nTABLE #: " + this.numeroTable + "\n");
 
 			double prixAvantTaxes;
 			double prixApresTaxes;
@@ -122,11 +122,16 @@ public class ChezBarette {
 				prixApresTaxes = calculerPrix(prixAvantTaxes);
 				
 				
-				System.out.println(client.getNom() + " " + f.format(prixApresTaxes) + "$ ");
+				System.out.println(client.getNom() + ": " + f.format(prixApresTaxes) + "$ ");
 				
+				//on ajoute le prix total de chaque clients au montant total
+				table.setMontantTotal(prixApresTaxes);
 				
 				}
 			}
+			
+			
+			System.out.println("\nTOTAL: " + f.format(table.getMontantTotal()) + "$ ");
 
 		} else {
 			System.out.println("Le fichier ne respecte pas le format demandé!");
