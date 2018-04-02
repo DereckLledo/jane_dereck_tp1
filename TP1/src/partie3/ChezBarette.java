@@ -25,7 +25,7 @@ public class ChezBarette {
 	private ArrayList<Clients> listeClients = new ArrayList<Clients>();
 	private ArrayList<Plats> listePlats = new ArrayList<Plats>();
 	
-	private ArrayList<Tables> listeTables = new ArrayList<Tables>();
+	private Tables table;
 
 	public ChezBarette() {
 
@@ -90,6 +90,11 @@ public class ChezBarette {
 
 		catch (Exception e) {
 
+		}
+		
+		//si tout est valide est valide, nous allons créer un objet Tables avec la liste des clients et le numero de la table
+		if (valide) {
+			table = new Tables(listeClients, numeroTable);
 		}
 
 		// message de sortie

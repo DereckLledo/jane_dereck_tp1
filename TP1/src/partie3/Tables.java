@@ -6,7 +6,7 @@ public class Tables {
 	
 	//permet d'avoir des tables avec des numéros différents
 	
-	private ArrayList<Clients> listeClients = new ArrayList<Clients>();
+	public ArrayList<Clients> listeClients = new ArrayList<Clients>();
 	private double montantTotal = 0;
 	private int numeroTable;
 	
