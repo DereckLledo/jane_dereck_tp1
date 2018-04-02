@@ -17,7 +17,7 @@ public class TestUnit {
 	
 	@Before
 	public void AvantChaqueTest() {
-		chezB = new ChezBarette();
+		chezB =  new ChezBarette();
 		cli = Mockito.mock(Clients.class);
 		plat = Mockito.mock(Plats.class);
 
