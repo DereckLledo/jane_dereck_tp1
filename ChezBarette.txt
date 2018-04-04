@@ -1,5 +1,5 @@
 Table:
-15
+10
 Clients:
 Roger
 Céline
@@ -12,6 +12,4 @@ Commandes:
 Roger Poutine 1
 Céline Frites 2
 Céline Repas_Poulet 1
-Steeve Repas_Poulet 3
-Steeve Frites 4
 Fin
